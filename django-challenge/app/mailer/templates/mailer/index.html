@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Greetings Cards Spammers</title>
 	<script src="{% static "js/jquery-2.1.1.js" %}"></script>
 	<script>
@@ -116,7 +116,8 @@
 		{% for company in company_list %}
 		<tr>
 			<td>{{ company.name }}</td>
-			<td>{{ company.get_order_count }}</td>
+			<td></td>
+			<td><p>Total Order: {{ company.get_order_count }}</p></td>
 			<td>{{ company.get_order_sum|floatformat:2 }}</td>
 			<td><input type="checkbox" name="select{{company.pk}}" id=""></td>
 		</tr>
@@ -125,6 +126,7 @@
 				<td>&nbsp;</td>
 				<td>{{ contact.first_name }} {{ contact.last_name }}</td>
 				<td>Orders: {{ contact.get_order_count }}</td>
+				<td></td>
 				<td></td>
 			</tr>
 			{% endfor %}
